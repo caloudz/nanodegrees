@@ -15,6 +15,7 @@ Understand the most common data types. Understand the various sources of data. M
 Project: [Create an Analytical Dataset & Create Reports from a Database](https://github.com/caloudz/nanodegrees/tree/master/business-analyst/p2-analytics-dataset)
 
 ### 3. Data Visualization
+Learn about visual encodings, best practices for building data visualizations, and how to get started in Tableau.
 
 Project: [Visualize Movie Data](https://github.com/caloudz/nanodegrees/tree/master/business-analyst/p3-visualize-movie)
 
