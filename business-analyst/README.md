@@ -2,7 +2,7 @@
 
 This nanodegree was granted to me as a scholarship by Bertelsmann SE & Co. KGaA. For this program, we had to submit nine hands-on projects which were to be solved with Alteryx, SQL, and Tableau. The assignments ranged from segmenting, clustering and A/B testing to time series forecasting and beyond.
 
-## Projects
+## Curriculum
 
 ### 1. Problem Solving with Analytics
 Learn a structured framework for solving problems with advanced analytics. Learn to select the most appropriate analytical methodology. Learn linear regression.
