@@ -1,6 +1,10 @@
 # Udacity Nanodegree: AI in Healthcare
 
-Learn to build, evaluate, and integrate predictive models that have the power to transform patient outcomes. Begin by classifying and segmenting 2D and 3D medical images to augment diagnosis and then move on to modeling patient outcomes with electronic health records to optimize clinical trial testing decisions. Finally, build an algorithm that uses data collected from wearable devices to estimate the wearer’s pulse rate in the presence of motion.
+Artificial Intelligence has revolutionized many industries in the past decade, and healthcare is no exception. In fact, the amount of data in healthcare has grown 20x in the past 7 years, causing an expected surge in the Healthcare AI market from $2.1 to $36.1 billion by 2025 at an annual growth rate of 50.4%. AI in Healthcare is transforming the way patient care is delivered, and is impacting all aspects of the medical industry, including early detection, more accurate diagnosis, advanced treatment, health monitoring, robotics, training, research and much more.
+
+By leveraging the power of AI, providers can deploy more precise, efficient, and impactful interventions at exactly the right moment in a patient’s care. In light of the worldwide COVID-19 pandemic, there has never been a better time to understand the possibilities of artificial intelligence within the healthcare industry and learn how you can make an impact to better the world’s healthcare infrastructure.
+
+In this nanodegree, I learnt to build, evaluate, and integrate predictive models that have the power to transform patient outcomes. The AI for Healthcare Nanodegree program is comprised of content and curriculum to support four projects.
 
 ## Curriculum
 
