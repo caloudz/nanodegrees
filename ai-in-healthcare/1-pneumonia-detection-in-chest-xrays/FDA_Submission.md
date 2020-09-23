@@ -4,8 +4,6 @@
 
 **Name of your Device:** PnomoreNet
 
----
-
 ## Algorithm Description 
 
 ### 1. General Information
@@ -189,5 +187,3 @@ The gold standard for obtaining ground truth would be to perform either a Sputum
 
 **Algorithm Performance Standard:**
 The performance standard for the model should be calculated with the f1-score against the silver standard. The average radiologist achieves an f1-score of 0.387. See [Rajpurkar, Pranav, et al. (2017)](https://arxiv.org/pdf/1711.05225.pdf%202017.pdf). The model's f1-score should exceed the radiologist's f1-score and statistical signficance of the improvement of the average f1-score should be taken into account when assessing model performance.
-
----
