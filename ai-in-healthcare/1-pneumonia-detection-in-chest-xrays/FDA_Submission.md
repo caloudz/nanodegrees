@@ -94,11 +94,11 @@ The model outputs a probability value for binary classification with a sigmoid a
 * However, training has a bit of noisy movement while validation has a lot of noisy movements, and a large gap remains between both curves which never converge (with early stopping in place). This indicates that the validation dataset might be unrepresentative.
 * Another indicator is that validation loss is much higher, and accuracy much lower, so the validation data seems to be harder for the model to make predictions with.
 
-[ROC Curve Plot](fig/auc-plot-vgg-attn.png)
+![ROC Curve Plot](fig/auc-plot-vgg-attn.png)
 
 The ROC curve indicates that the model has learned something from the data.
 
-[PR by Threshold Plot](fig/prth-plot-vgg-attn.png)
+![PR by Threshold Plot](fig/prth-plot-vgg-attn.png)
 
 **Final Threshold and Explanation:**
 The maximum f1-score is 0.4793 with a threshold of 0.48. In "[Chexnet: Radiologist-level pneumonia detection on chest x-rays with deep learning](https://arxiv.org/pdf/1711.05225.pdf%202017.pdf)", Rajpurkar, Pranav, et al. (2017) list a comparison of their CheXNet with the performance of radiologists:
