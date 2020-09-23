@@ -44,11 +44,11 @@ The algorithm performs the following preprocessing steps on the images:
 **CNN Architecture:**
 The model is built on a pre-trained VGG16 CNN. An attention model is built on top of the pre-trained VGG16 with convolution and pooling blocks, GAP for turning pixels on and off, and rescaling with the attempt of having the model learn attention in images.
 
-[Attention Model Summary](fig/attn-model-summary.png)
+![Attention Model Summary](fig/attn-model-summary.png)
 
 The model outputs a probability value for binary classification with a sigmoid activation function. The learnt attention can be inspected in attention maps as below.
 
-[Attention Map](fig/attention_map.png)
+![Attention Map](fig/attention_map.png)
 
 
 ### 3. Algorithm Training
@@ -86,9 +86,9 @@ The model outputs a probability value for binary classification with a sigmoid a
     * Dropout
     * Dense
     
-[Algorithm Training Performance](fig/history-plot-vgg-attn-sep.png)
+![Algorithm Training Performance](fig/history-plot-vgg-attn-sep.png)
 
-[Algorithm Training Performance](fig/history-plot-vgg-attn-tog.png)
+![Algorithm Training Performance](fig/history-plot-vgg-attn-tog.png)
 
 * The training loss and accuracy show improvements, so the model is learning.
 * However, training has a bit of noisy movement while validation has a lot of noisy movements, and a large gap remains between both curves which never converge (with early stopping in place). This indicates that the validation dataset might be unrepresentative.
@@ -122,19 +122,19 @@ PnomoreNet's f1-score is higher than both the radiologists' average and CheXNet.
 
 **Description of database of patient data used:**
 
-[Patient Gender](fig/atient-gender.png)
+![Patient Gender](fig/atient-gender.png)
 
 The data contained records from 56.49% male and 43.51% female.
 
-[Patient Age](fig/patient-age.png)
+![Patient Age](fig/patient-age.png)
 
 The minimum age is at 0 and the maximum age at 100 (after pruning outliers of records with age > 100. For example, there were records with patient age 414.
 
-[View Position](fig/view-position.png)
+![View Position](fig/view-position.png)
 
 There were 39.97% of AP view positions and 60.03% of PA view positions.
 
-[Pneumonia Co-Occurence Other Diseases](fig/pneumonia-cooccurrence.png)
+![Pneumonia Co-Occurence Other Diseases](fig/pneumonia-cooccurrence.png)
 
 Out of all 30805 unique patients, 1008 patients have pneumonia. Out of these pneumonia patients, there are 27 unique patients who have only pneumonia and no other disease. The most common diseases that co-occur with pneumonia are: Infiltration, Edema, Effusion, and Atelectasis.
 
