@@ -20,12 +20,30 @@ The device can be utilized right after the X-ray scan. The prediction results wo
 **Device Limitations:**
 The device should not be used as a standalone pneumonia detection tool. Radiologists should review all scans regardless.
 
+The device should be used when the following diseases co-occur due to low sensitivity/recall:
+* Edema: 0.6500
+* Effusion: 0.6644
+* Infiltration: 0.6748
+* Emphysema: 0.6818
+* Cardiomegaly 0.7037
+* Atelectasis  0.7054
+* Pleural_Thickening 0.7568
+* Mass: 0.7971
+
+The following co-occuring diseases have a recall that matches the model's recall for Pneumonia (0.8392):
+* Consolidation: 0.8372
+* Nodule: 0.8471
+* Fibrosis: 0.8750
+* Pneumothorax: 0.8980
+* Hernia: 1.000
+
 **Clinical Impact of Performance:**
 It is recommended to use the algorithm for assisting radiological diagnosis of pneumonia in non-emergency situations.
-* A negative prediction (no pneumonia) is correct with a 82.95% probability
-* A positive prediction (pneumonia) is correct with a 34.71% probability
+* A negative prediction (no pneumonia) is correct with a 30.62% probability (specificity)
+* A positive prediction (pneumonia) is correct with a 31.91% probability (precision)
+* 83.92% of actual positives (pneumonia) was correctly identified (recall)
 
-Due to the high recall of the model, the predictions suit well to aid with screening studies (to make sure a patient does not have penumonia) and radiologists' worklist prioritization (reviewing predicted negative cases can be de-prioritized). All images, regardless of the prediction, should be reviewed by radiologists and not skipped.
+Due to the high recall of the model (0.8392) the predictions suit well to aid with screening studies and radiologists' worklist prioritization (reviewing predicted positive cases can be prioritized). All images, regardless of the prediction, should be reviewed by radiologists and not skipped.
 
 
 ### 2. Algorithm Design and Function
@@ -39,7 +57,7 @@ The algorithm performs the following checks on DICOM images:
 **Preprocessing Steps:**
 The algorithm performs the following preprocessing steps on the images:
 * Images are resized to 244x244 as required by the pre-trained model.
-* Images are rescaled 1/255.
+* Images are rescaled by substracting the images' mean and dividing by the images' standard deviation.
 
 **CNN Architecture:**
 The model is built on a pre-trained VGG16 CNN. An attention model is built on top of the pre-trained VGG16 with convolution and pooling blocks, GAP for turning pixels on and off, and rescaling with the attempt of having the model learn attention in images.
@@ -86,22 +104,22 @@ The model outputs a probability value for binary classification with a sigmoid a
     * Dropout
     * Dense
     
-![Algorithm Training Performance](fig/history-plot-vgg-attn-sep.png)
+![Algorithm Training Performance](fig/vgg-attn-history-plot-sep.png)
 
-![Algorithm Training Performance](fig/history-plot-vgg-attn-tog.png)
+![Algorithm Training Performance](fig/vgg-attn-history-plot-tog.png)
 
 * The training loss and accuracy show improvements, so the model is learning.
 * However, training has a bit of noisy movement while validation has a lot of noisy movements, and a large gap remains between both curves which never converge (with early stopping in place). This indicates that the validation dataset might be unrepresentative.
 * Another indicator is that validation loss is much higher, and accuracy much lower, so the validation data seems to be harder for the model to make predictions with.
 
-![ROC Curve Plot](fig/auc-plot-vgg-attn.png)
+![ROC Curve Plot](fig/vgg-attn-auc-plot.png)
 
 The ROC curve indicates that the model has learned something from the data.
 
-![PR by Threshold Plot](fig/prth-plot-vgg-attn.png)
+![PR by Threshold Plot](fig/vgg-attn-prth-plot.png)
 
 **Final Threshold and Explanation:**
-The maximum f1-score is 0.4793 with a threshold of 0.48. In "[Chexnet: Radiologist-level pneumonia detection on chest x-rays with deep learning](https://arxiv.org/pdf/1711.05225.pdf%202017.pdf)", Rajpurkar, Pranav, et al. (2017) list a comparison of their CheXNet with the performance of radiologists:
+The maximum f1-score is 0.4563 with a threshold of 0.555. In "[Chexnet: Radiologist-level pneumonia detection on chest x-rays with deep learning](https://arxiv.org/pdf/1711.05225.pdf%202017.pdf)", Rajpurkar, Pranav, et al. (2017) list a comparison of their CheXNet with the performance of radiologists:
 
 |                  | F1-score | 95% CI    | 
 |------------------|-------|--------------|
@@ -113,7 +131,7 @@ The maximum f1-score is 0.4793 with a threshold of 0.48. In "[Chexnet: Radiologi
 | Radiologist Avg. | 0.387 |(0.330, 0.442)|
 | CheXNet          | 0.435 |(0.387, 0.481)|
 |------------------|-------|--------------|
-| PnomoreNet       | 0.479 |              |
+| PnomoreNet       | 0.456 |              |
 
 PnomoreNet's f1-score is higher than both the radiologists' average and CheXNet. Because PnomoreNet has a high recall with a low precision, the model contributes value in terms of its predicive value of negatives.
 
@@ -122,7 +140,7 @@ PnomoreNet's f1-score is higher than both the radiologists' average and CheXNet.
 
 **Description of database of patient data used:**
 
-![Patient Gender](fig/atient-gender.png)
+![Patient Gender](fig/patient-gender.png)
 
 The data contained records from 56.49% male and 43.51% female.
 

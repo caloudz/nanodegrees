@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>FDA_Submission.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="fda-submission">FDA  Submission</h1>
+<p><strong>Your Name:</strong> Claudia Dai</p>
+<p><strong>Name of your Device:</strong> PnomoreNet</p>
+<h2 id="algorithm-description">Algorithm Description</h2>
+<h3 id="1-general-information">1. General Information</h3>
+<p><strong>Intended Use Statement:</strong>
+Assist radiological diagnosis of pneumonia in non-emergency situations.</p>
+<p><strong>Indications for Use:</strong></p>
+<ul>
+<li>Screening studies to make sure a patient does not have pneumonia</li>
+<li>Radiologist's workflow re-prioritization (de-prioritize review of predicted negative cases)</li>
+</ul>
+<p>The device can be utilized right after the X-ray scan. The prediction results would arrive at the radiologist together with the scan before the radiologist reviews them.</p>
+<p><strong>Device Limitations:</strong>
+The device should not be used as a standalone pneumonia detection tool. Radiologists should review all scans regardless.</p>
+<p>The device should be used when the following diseases co-occur due to low sensitivity/recall:</p>
+<ul>
+<li>Edema: 0.6500</li>
+<li>Effusion: 0.6644</li>
+<li>Infiltration: 0.6748</li>
+<li>Emphysema: 0.6818</li>
+<li>Cardiomegaly 0.7037</li>
+<li>Atelectasis  0.7054</li>
+<li>Pleural_Thickening 0.7568</li>
+<li>Mass: 0.7971</li>
+</ul>
+<p>The following co-occuring diseases have a recall that matches the model's recall for Pneumonia (0.8392):</p>
+<ul>
+<li>Consolidation: 0.8372</li>
+<li>Nodule: 0.8471</li>
+<li>Fibrosis: 0.8750</li>
+<li>Pneumothorax: 0.8980</li>
+<li>Hernia: 1.000</li>
+</ul>
+<p><strong>Clinical Impact of Performance:</strong>
+It is recommended to use the algorithm for assisting radiological diagnosis of pneumonia in non-emergency situations.</p>
+<ul>
+<li>A negative prediction (no pneumonia) is correct with a 30.62% probability (specificity)</li>
+<li>A positive prediction (pneumonia) is correct with a 31.91% probability (precision)</li>
+<li>83.92% of actual positives (pneumonia) was correctly identified (recall)</li>
+</ul>
+<p>Due to the high recall of the model (0.8392) the predictions suit well to aid with screening studies and radiologists' worklist prioritization (reviewing predicted positive cases can be prioritized). All images, regardless of the prediction, should be reviewed by radiologists and not skipped.</p>
+<h3 id="2-algorithm-design-and-function">2. Algorithm Design and Function</h3>
+<p><strong>DICOM Checking Steps:</strong>
+The algorithm performs the following checks on DICOM images:</p>
+<ul>
+<li>is examined body part the chest area?</li>
+<li>is the patient position either posterior/anterior (PA) or anterior/posterior (AP)?</li>
+<li>is the modality a digital radiography (DX)?</li>
+</ul>
+<p><strong>Preprocessing Steps:</strong>
+The algorithm performs the following preprocessing steps on the images:</p>
+<ul>
+<li>Images are resized to 244x244 as required by the pre-trained model.</li>
+<li>Images are rescaled by substracting the images' mean and dividing by the images' standard deviation.</li>
+</ul>
+<p><strong>CNN Architecture:</strong>
+The model is built on a pre-trained VGG16 CNN. An attention model is built on top of the pre-trained VGG16 with convolution and pooling blocks, GAP for turning pixels on and off, and rescaling with the attempt of having the model learn attention in images.</p>
+<p><img src="fig/attn-model-summary.png" alt="Attention Model Summary"></p>
+<p>The model outputs a probability value for binary classification with a sigmoid activation function. The learnt attention can be inspected in attention maps as below.</p>
+<p><img src="fig/attention_map.png" alt="Attention Map"></p>
+<h3 id="3-algorithm-training">3. Algorithm Training</h3>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li>Image augmentation
+<ul>
+<li>Rescaled 1/255</li>
+<li>Centered sample-wise</li>
+<li>Std normalized sample-wise</li>
+<li>Horizontal flips</li>
+<li>Height shift range 0.05</li>
+<li>Width shift range 0.05</li>
+<li>Zoom range 0.15</li>
+</ul>
+</li>
+<li>Batch size
+<ul>
+<li>Training: 64</li>
+<li>Validation: 1024</li>
+<li>Prediction: 64</li>
+</ul>
+</li>
+<li>Optimizer learning rate
+<ul>
+<li>Adam 0.0001 (1e-4)</li>
+</ul>
+</li>
+<li>Layers of pre-existing architecture that were frozen
+<ul>
+<li>First 17 layers of VGG 16</li>
+</ul>
+</li>
+<li>Layers of pre-existing architecture that were fine-tuned
+<ul>
+<li>All dense layers of VGG16 and attention</li>
+</ul>
+</li>
+<li>Layers added to pre-existing architecture
+<ul>
+<li>Batch Normalization</li>
+<li>Conv2D</li>
+<li>Locally Connected 2D</li>
+<li>Conv2D</li>
+<li>Multiply</li>
+<li>Global Avg Pooling</li>
+<li>Global Avg Pooling</li>
+<li>RescaleGAP</li>
+<li>Dropout</li>
+<li>Dense</li>
+<li>Dropout</li>
+<li>Dense</li>
+</ul>
+</li>
+</ul>
+<p><img src="fig/vgg-attn-history-plot-sep.png" alt="Algorithm Training Performance"></p>
+<p><img src="fig/vgg-attn-history-plot-tog.png" alt="Algorithm Training Performance"></p>
+<ul>
+<li>The training loss and accuracy show improvements, so the model is learning.</li>
+<li>However, training has a bit of noisy movement while validation has a lot of noisy movements, and a large gap remains between both curves which never converge (with early stopping in place). This indicates that the validation dataset might be unrepresentative.</li>
+<li>Another indicator is that validation loss is much higher, and accuracy much lower, so the validation data seems to be harder for the model to make predictions with.</li>
+</ul>
+<p><img src="fig/vgg-attn-auc-plot.png" alt="ROC Curve Plot"></p>
+<p>The ROC curve indicates that the model has learned something from the data.</p>
+<p><img src="fig/vgg-attn-prth-plot.png" alt="PR by Threshold Plot"></p>
+<p><strong>Final Threshold and Explanation:</strong>
+The maximum f1-score is 0.4563 with a threshold of 0.555. In &quot;<a href="https://arxiv.org/pdf/1711.05225.pdf%202017.pdf">Chexnet: Radiologist-level pneumonia detection on chest x-rays with deep learning</a>&quot;, Rajpurkar, Pranav, et al. (2017) list a comparison of their CheXNet with the performance of radiologists:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>F1-score</th>
+<th>95% CI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Radiologist 1</td>
+<td>0.383</td>
+<td>(0.309, 0.453)</td>
+</tr>
+<tr>
+<td>Radiologist 2</td>
+<td>0.356</td>
+<td>(0.282, 0.428)</td>
+</tr>
+<tr>
+<td>Radiologist 3</td>
+<td>0.365</td>
+<td>(0.291, 0.435)</td>
+</tr>
+<tr>
+<td>Radiologist 4</td>
+<td>0.442</td>
+<td>(0.390, 0.492)</td>
+</tr>
+<tr>
+<td>------------------</td>
+<td>-------</td>
+<td>--------------</td>
+</tr>
+<tr>
+<td>Radiologist Avg.</td>
+<td>0.387</td>
+<td>(0.330, 0.442)</td>
+</tr>
+<tr>
+<td>CheXNet</td>
+<td>0.435</td>
+<td>(0.387, 0.481)</td>
+</tr>
+<tr>
+<td>------------------</td>
+<td>-------</td>
+<td>--------------</td>
+</tr>
+<tr>
+<td>PnomoreNet</td>
+<td>0.456</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>PnomoreNet's f1-score is higher than both the radiologists' average and CheXNet. Because PnomoreNet has a high recall with a low precision, the model contributes value in terms of its predicive value of negatives.</p>
+<h3 id="4-databases">4. Databases</h3>
+<p><strong>Description of database of patient data used:</strong></p>
+<p><img src="fig/patient-gender.png" alt="Patient Gender"></p>
+<p>The data contained records from 56.49% male and 43.51% female.</p>
+<p><img src="fig/patient-age.png" alt="Patient Age"></p>
+<p>The minimum age is at 0 and the maximum age at 100 (after pruning outliers of records with age &gt; 100. For example, there were records with patient age 414.</p>
+<p><img src="fig/view-position.png" alt="View Position"></p>
+<p>There were 39.97% of AP view positions and 60.03% of PA view positions.</p>
+<p><img src="fig/pneumonia-cooccurrence.png" alt="Pneumonia Co-Occurence Other Diseases"></p>
+<p>Out of all 30805 unique patients, 1008 patients have pneumonia. Out of these pneumonia patients, there are 27 unique patients who have only pneumonia and no other disease. The most common diseases that co-occur with pneumonia are: Infiltration, Edema, Effusion, and Atelectasis.</p>
+<p><strong>Description of Training Dataset:</strong>
+The training dataset consisted of 2290 image files, with a 50/50 split of positive and negative pneumonia cases.</p>
+<p><strong>Description of Validation Dataset:</strong>
+The validation dataset consisted of 1430 image files, with a 20/80 split of positive and negative pneumonia cases to approach a more realistic distribution of pneumonia in the real world.</p>
+<h3 id="5-ground-truth">5. Ground Truth</h3>
+<p>Training and validation data was sampled from a larger dataset curated by the NIH specifically to address the problem of a lack of large x-ray datasets with ground truth labels to be used in the creation of disease detection algorithms.</p>
+<p>There are 112,120 X-ray images with disease labels from 30,805 unique patients in this dataset.  The disease labels were created using Natural Language Processing (NLP) to mine the associated radiological reports. The labels include 14 common thoracic pathologies:</p>
+<ul>
+<li>Atelectasis</li>
+<li>Consolidation</li>
+<li>Infiltration</li>
+<li>Pneumothorax</li>
+<li>Edema</li>
+<li>Emphysema</li>
+<li>Fibrosis</li>
+<li>Effusion</li>
+<li>Pneumonia</li>
+<li>Pleural thickening</li>
+<li>Cardiomegaly</li>
+<li>Nodule</li>
+<li>Mass</li>
+<li>Hernia</li>
+</ul>
+<p>The biggest limitation of this dataset is that image labels were NLP-extracted so there could be some erroneous labels but the NLP labeling accuracy is estimated to be &gt;90%.</p>
+<p>The original radiology reports are not publicly available but you can find more details on the labeling process <a href="https://arxiv.org/abs/1705.02315">here.</a></p>
+<p>Original dataset contents:</p>
+<ol>
+<li>112,120 frontal-view chest X-ray PNG images in 1024*1024 resolution</li>
+<li>Meta data for all images (Data_Entry_2017.csv): Image Index, Finding Labels, Follow-up #, Patient ID, Patient Age, Patient Gender, View Position, Original Image Size and Original Image Pixel Spacing.</li>
+</ol>
+<h3 id="6-fda-validation-plan">6. FDA Validation Plan</h3>
+<p><strong>Patient Population Description for FDA Validation Dataset:</strong></p>
+<ul>
+<li>Age: 0 to 100</li>
+<li>Gender: Female and Male</li>
+<li>Type of imaging modality: DX</li>
+<li>Body part imaged: Chest</li>
+</ul>
+<p><strong>Ground Truth Acquisition Methodology:</strong>
+The gold standard for obtaining ground truth would be to perform either a Sputum test or Pleural fluid culture. However, these tests are expensive, and diagnosis is often informed by the report of a radiologist. As this model's intended use is to assist radiologists, images can be validated by three independent radiologists per silver standard.</p>
+<p><strong>Algorithm Performance Standard:</strong>
+The performance standard for the model should be calculated with the f1-score against the silver standard. The average radiologist achieves an f1-score of 0.387. See <a href="https://arxiv.org/pdf/1711.05225.pdf%202017.pdf">Rajpurkar, Pranav, et al. (2017)</a>. The model's f1-score should exceed the radiologist's f1-score and statistical signficance of the improvement of the average f1-score should be taken into account when assessing model performance.</p>
+
+</body>
+</html>
