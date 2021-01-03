@@ -21,7 +21,7 @@ Project: [Hippocampus Volume Quantification for Alzheimer's Progression](#)
 ### 3. Applying AI to EHR Data
 Learn the fundamental skills to work with EHR data and build and evaluate compliant, interpretable models. You will cover EHR data privacy and security standards, how to analyze EHR data and avoid common challenges, and cover key industry code sets. By the end of the course, you will have the skills to analyze an EHR dataset, transform it to the right level, build powerful features with TensorFlow, and model the uncertainty and bias with TensorFlow Probability and Aequitas.
 
-Project: [Patient Selection for Diabetes Drug Testing](#)
+Project: [Patient Selection for Diabetes Drug Testing](https://github.com/caloudz/nanodegrees/tree/master/ai-in-healthcare/3-patient-selection-for-diabetes-drug-testing)
 
 ### 4. Applying AI to Wearable Device Data
 Learn how to build algorithms that process the data collected by wearable devices and surface insights about the wearer’s health. Cover the sensors and signal processing foundation that are critical for success in this domain, including IMU, PPG, and ECG that are common to most wearable devices, and learn how to build three algorithms from real-world sensor data.
