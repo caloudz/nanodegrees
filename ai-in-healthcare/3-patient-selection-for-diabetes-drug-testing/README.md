@@ -1,4 +1,4 @@
-# Diabetes Drug Testing
+# Patient Selection for Diabetes Drug Testing
 
 ## Project Overview
 
