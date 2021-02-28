@@ -16,7 +16,7 @@ Project: [Pneumonia Detection from Chest X-Rays](https://github.com/caloudz/nano
 ### 2. Applying AI to 3D Medical Imaging Data
 Learn the fundamental skills needed to work with 3D medical imaging datasets and frame insights derived from the data in a clinically relevant context. Understand how these images are acquired, stored in clinical archives, and subsequently read and analyzed. Discover how clinicians use 3D medical images in practice and where AI holds most potential in their work with these images. Design and apply machine learning algorithms to solve the challenging problems in 3D medical imaging and how to integrate the algorithms into the clinical workflow.
 
-Project: [Hippocampus Volume Quantification for Alzheimer's Progression](#)
+Project: [Hippocampus Volume Quantification for Alzheimer's Progression](https://github.com/caloudz/nanodegrees/tree/master/ai-in-healthcare/2-hippocampal-volume-quantification-in-alzheimer-progression)
 
 ### 3. Applying AI to EHR Data
 Learn the fundamental skills to work with EHR data and build and evaluate compliant, interpretable models. You will cover EHR data privacy and security standards, how to analyze EHR data and avoid common challenges, and cover key industry code sets. By the end of the course, you will have the skills to analyze an EHR dataset, transform it to the right level, build powerful features with TensorFlow, and model the uncertainty and bias with TensorFlow Probability and Aequitas.
