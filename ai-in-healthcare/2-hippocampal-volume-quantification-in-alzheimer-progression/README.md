@@ -1,4 +1,4 @@
-# Final Project Instructions
+# Hippocampal Volume Quantification in Alzheimer Progression: Project Instructions
 
 This file contains background information and instructions for the final project.
 
