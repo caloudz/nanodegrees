@@ -1,13 +1,13 @@
 # Section 3: Integrating into a Clinical Network
 
-![A hippocampus segmentation report in OHIF viewer](./readme.img/ohif.png)
+![A hippocampus segmentation report in OHIF viewer](../readme.img/ohif.png)
 
 A hippocampus segmentation report in OHIF viewer
 In this final section you will use some of the work you did for Section 2 to create an AI product that can be integrated into a clinical network and provide the auto-computed information on the hippocampal volume to the clinicians. While hospital integrations are typically handled by hospital IT staff, it will help tremendously if you can talk the same language with the people who will operate your model, and will have a feel for how clinical radiological software works. These skills will also help you debug your model in the field.
 
 You will perform this section in a different workspace than the previous two sections: Workspace for Section 3. This workspace is a simpler hardware, with no GPU, which is more representative of a clinical environment. This workspace also has a few tools installed in it, which is replicates the following clinical network setup:
 
-![Network setup](./readme.img/network-setup.png)
+![Network setup](../readme.img/network-setup.png)
 
 Specifically, we have the following software in this setup:
 * MRI scanner is represented by a script `section3/src/deploy_scripts/send_volume.sh`. When you run this script it will simulate what happens after a radiological exam is complete, and send a volume to the clinical PACS. Note that scanners typically send entire studies to archives. *PACS server is represented by [Orthanc](http://orthanc-server.com/) deployment that is listening to DICOM DIMSE requests on port 4242. Orthanc also has a DicomWeb interface that is exposed at port 8042, prefix /dicom-web. There is no authentication and you are welcome to explore either one of the mechanisms of access using a tool like curl or Postman. Our PACS server is also running an auto-routing module that sends a copy of everything it receives to an AI server. See instructions ad the end of this page on how to launch if you are using the Udacity Workspace.
