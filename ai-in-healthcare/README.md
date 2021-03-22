@@ -26,4 +26,4 @@ Project: [Patient Selection for Diabetes Drug Testing](https://github.com/caloud
 ### 4. Applying AI to Wearable Device Data
 Learn how to build algorithms that process the data collected by wearable devices and surface insights about the wearer’s health. Cover the sensors and signal processing foundation that are critical for success in this domain, including IMU, PPG, and ECG that are common to most wearable devices, and learn how to build three algorithms from real-world sensor data.
 
-Project: [Motion Compensated Pulse Rate Estimation](#)
+Project: [Motion Compensated Pulse Rate Estimation](https://github.com/caloudz/nanodegrees/tree/master/ai-in-healthcare/4-motion-compensated-pulse-rate-estimation)
